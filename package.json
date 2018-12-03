@@ -1,0 +1,17 @@
+{
+  "name": "perf-json-querying",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "perf": "node index.js"
+  },
+  "keywords": [],
+  "author": "Andrew Kaiser",
+  "license": "MIT",
+  "dependencies": {
+    "json-query": "^2.2.2",
+    "jsonpath": "^1.0.0",
+    "jsonpath-plus": "^0.18.0"
+  }
+}
