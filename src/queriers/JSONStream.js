@@ -1,18 +1,25 @@
 const JSONStream = require('JSONStream')
 const CityLotsORM = require('./base-class')
 const objectToStream = require('../object-to-stream')
+const { NotPossibleError } = require('../errors')
 
-const { performance } = require('perf_hooks')
 class JSONStreamCity extends CityLotsORM {
+  setup() {
+    this.jsonStream = objectToStream(this.data)
+  }
+  cleanup() {
+    this.jsonStream = null
+  }
   execute(query) {
     return new Promise((resolve, reject) => {
-      const jsonStream = objectToStream(this.data).pipe(JSONStream.parse(query))
       const result = []
-      jsonStream.on('data', data => {
-        result.push(data)
-      })
-      jsonStream.on('close', () => resolve(result))
-      jsonStream.on('error', reject)
+      this.jsonStream
+        .pipe(JSONStream.parse(query))
+        .on('data', data => {
+          result.push(data)
+        })
+        .on('close', () => resolve(result))
+        .on('error', reject)
     })
   }
   shallow() {
@@ -22,9 +29,7 @@ class JSONStreamCity extends CityLotsORM {
     return this.execute('features..properties.BLOCK_NUM')
   }
   conditional() {
-    return this.execute(
-      `features[?(@.properties.STREET=='UNKNOWN')].properties.BLOCK_NUM`
-    )
+    throw new NotPossibleError()
   }
 }
 

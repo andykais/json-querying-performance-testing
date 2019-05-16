@@ -1,22 +1,16 @@
 const stream = require('stream')
 const util = require('util')
+const split2 = require('split2')
 
-function StringifyStream() {
-  stream.Transform.call(this)
-
-  this._readableState.objectMode = false
-  this._writableState.objectMode = true
-}
-util.inherits(StringifyStream, stream.Transform)
-
-StringifyStream.prototype._transform = function(obj, encoding, cb) {
-  this.push(JSON.stringify(obj))
-  cb()
-}
-
-module.exports = object => {
-  var rs = new stream.Readable({ objectMode: true })
-  rs.push(object)
-  rs.push(null)
-  return rs.pipe(new StringifyStream())
+module.exports = (object, { chunks = false } = {}) => {
+  const rs = new stream.Readable()
+  if (chunks) {
+    rs.push(JSON.stringify(object, null, 2))
+    rs.push(null)
+    return rs.pipe(split2())
+  } else {
+    rs.push(JSON.stringify(object))
+    rs.push(null)
+    return rs
+  }
 }

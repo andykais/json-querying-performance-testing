@@ -1,9 +1,12 @@
 const { performance } = require('perf_hooks')
+const { NotPossibleError, UnImplementedError } = require('./errors')
 const performanceClasses = {
   'json-query': require('./queriers/json-query'),
   'jsonpath-plus': require('./queriers/jsonpath-plus'),
   jsonpath: require('./queriers/jsonpath'),
-  JSONStream: require('./queriers/JSONStream')
+  JSONStream: require('./queriers/JSONStream'),
+  oboe: require('./queriers/oboe'),
+  'map-filter-reduce': require('./queriers/map-filter-reduce')
 }
 const datasets = {
   smallCityLots: {
@@ -50,9 +53,11 @@ const perf = (perfClasses, datasets) => async (
       const accessClass = new perfClasses[libName](dataset)
       for (const method of testMethods) {
         try {
+          await accessClass.setup()
           const start = performance.now()
           const result = await accessClass[method]()
           const stop = performance.now()
+          accessClass.cleanup()
           const seconds = (stop - start) / 1e3
           datasetPerf[datasetName][libName][method] = Number(seconds.toFixed(4))
           console.log(
@@ -70,7 +75,13 @@ const perf = (perfClasses, datasets) => async (
             throw e
           }
         } catch (e) {
-          if (e.name === 'AssertError') {
+          if (e instanceof NotPossibleError) {
+            datasetPerf[datasetName][libName][method] = 'not possible'
+          }
+          else if (e instanceof UnImplementedError) {
+            datasetPerf[datasetName][libName][method] = 'not implemented'
+          }
+          else if (e.name === 'AssertError') {
             console.error(`${libName} ${method} ${e}`)
             datasetPerf[datasetName][libName][method] = 'incorrect'
           } else {
@@ -99,8 +110,19 @@ Object.entries(datasets).forEach(([name, { dataset }]) => {
 })
 console.log()
 
-const testLibraries = ['json-query', 'jsonpath-plus', 'jsonpath', 'JSONStream']
-const testDatasets = ['smallCityLots', 'mediumCityLots', 'largeCityLots']
+const testLibraries = [
+  'json-query',
+  'jsonpath-plus',
+  'jsonpath',
+  'JSONStream',
+  'oboe',
+  'map-filter-reduce'
+]
+const testDatasets = [
+  'smallCityLots',
+  'mediumCityLots',
+  'largeCityLots'
+]
 const testMethods = ['shallow', 'deep', 'conditional']
 perf(performanceClasses, datasets)(
   testLibraries,
