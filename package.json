@@ -1,6 +1,6 @@
 {
   "name": "perf-json-querying",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,12 +11,13 @@
   "license": "MIT",
   "dependencies": {
     "JSONStream": "^1.3.5",
+    "js-json-go": "^0.2.1",
     "json-query": "^2.2.2",
-    "jsonpath": "^1.0.1",
-    "jsonpath-plus": "^0.18.1",
+    "jsonpath": "^1.1.1",
+    "jsonpath-plus": "^5.0.7",
     "map-filter-reduce": "^3.2.2",
-    "oboe": "^2.1.4",
-    "pull-stream": "^3.6.11",
-    "split2": "^3.1.1"
+    "oboe": "^2.1.5",
+    "pull-stream": "^3.6.14",
+    "split2": "^3.2.2"
   }
 }
