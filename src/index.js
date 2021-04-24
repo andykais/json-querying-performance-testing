@@ -4,6 +4,7 @@ const performanceClasses = {
   'json-query': require('./queriers/json-query'),
   'jsonpath-plus': require('./queriers/jsonpath-plus'),
   jsonpath: require('./queriers/jsonpath'),
+  'js-json-go': require('./queriers/js-json-go'),
   JSONStream: require('./queriers/JSONStream'),
   oboe: require('./queriers/oboe'),
   'map-filter-reduce': require('./queriers/map-filter-reduce')
@@ -114,6 +115,7 @@ const testLibraries = [
   'json-query',
   'jsonpath-plus',
   'jsonpath',
+  'js-json-go',
   'JSONStream',
   'oboe',
   'map-filter-reduce'
