@@ -113,11 +113,11 @@ console.log()
 
 const testLibraries = [
   'json-query',
-  'json-power-query',
   'jsonpath-plus',
   'jsonpath',
   'JSONStream',
   'oboe',
+  'json-power-query',
   'map-filter-reduce'
 ]
 const testDatasets = [

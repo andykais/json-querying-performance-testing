@@ -48,52 +48,52 @@ largeCityLots 206560 items.
 
 smallCityLots:
 - json-query:
-  - shallow took 0.0193 seconds.
-  - deep took 0.0178 seconds.
-  - conditional took 0.0161 seconds.
-- json-power-query:
-  - shallow took 0.0066 seconds.
-  - deep took 0.0059 seconds.
-  - conditional took 0.0081 seconds.
+  - shallow took 0.0131 seconds.
+  - deep took 0.0257 seconds.
+  - conditional took 0.0278 seconds.
 - jsonpath-plus:
-  - shallow took 0.3602 seconds.
-  - deep took 0.3547 seconds.
-  - conditional took 0.3123 seconds.
+  - shallow took 0.3732 seconds.
+  - deep took 0.3694 seconds.
+  - conditional took 0.3274 seconds.
 - jsonpath:
-  - shallow took 0.9105 seconds.
-  - deep took 5.5777 seconds.
-  - conditional took 0.0223 seconds.
+  - shallow took 0.9304 seconds.
+  - deep took 5.4267 seconds.
+  - conditional took 0.0221 seconds.
 - JSONStream:
-  - shallow took 2.1767 seconds.
-  - deep took 2.2236 seconds.
+  - shallow took 2.1897 seconds.
+  - deep took 2.2671 seconds.
 - oboe:
-  - shallow took 2.6634 seconds.
-  - deep took 2.8611 seconds.
+  - shallow took 2.7426 seconds.
+  - deep took 2.8148 seconds.
+- json-power-query:
+  - shallow took 0.0059 seconds.
+  - deep took 0.0053 seconds.
+  - conditional took 0.0077 seconds.
 - map-filter-reduce:
 
 mediumCityLots:
 - json-query:
-  - shallow took 0.0145 seconds.
-  - deep took 0.0201 seconds.
-  - conditional took 0.017 seconds.
-- json-power-query:
-  - shallow took 0.0061 seconds.
-  - deep took 0.0071 seconds.
-  - conditional took 0.0091 seconds.
+  - shallow took 0.0162 seconds.
+  - deep took 0.0236 seconds.
+  - conditional took 0.0176 seconds.
 - jsonpath-plus:
-  - shallow took 0.732 seconds.
-  - deep took 0.7544 seconds.
-  - conditional took 0.7108 seconds.
+  - shallow took 0.7508 seconds.
+  - deep took 0.7786 seconds.
+  - conditional took 0.9143 seconds.
 - jsonpath:
-  - shallow took 1.9381 seconds.
-  - deep took 21.0531 seconds.
-  - conditional took 0.0373 seconds.
+  - shallow took 1.9927 seconds.
+  - deep took 21.0271 seconds.
+  - conditional took 0.0369 seconds.
 - JSONStream:
-  - shallow took 4.4559 seconds.
-  - deep took 4.734 seconds.
+  - shallow took 4.5762 seconds.
+  - deep took 4.9277 seconds.
 - oboe:
-  - shallow took 6.2294 seconds.
-  - deep took 5.6633 seconds.
+  - shallow took 5.8425 seconds.
+  - deep took 5.8037 seconds.
+- json-power-query:
+  - shallow took 0.0363 seconds.
+  - deep took 0.0192 seconds.
+  - conditional took 0.025 seconds.
 - map-filter-reduce:
 
 largeCityLots:
@@ -101,24 +101,24 @@ largeCityLots:
 json-query shallow failed, RangeError: Maximum call stack size exceeded.
 json-query deep failed, RangeError: Maximum call stack size exceeded.
 json-query conditional failed, RangeError: Maximum call stack size exceeded.
-- json-power-query:
-  - shallow took 0.0281 seconds.
-  - deep took 0.0335 seconds.
-  - conditional took 0.2713 seconds.
 - jsonpath-plus:
-  - shallow took 2.0309 seconds.
-  - deep took 2.0961 seconds.
-  - conditional took 1.3241 seconds.
+  - shallow took 2.4115 seconds.
+  - deep took 2.1583 seconds.
+  - conditional took 1.3796 seconds.
 - jsonpath:
-  - shallow took 5.5157 seconds.
-  - deep took 90.6215 seconds.
-  - conditional took 0.075 seconds.
+  - shallow took 5.6833 seconds.
+  - deep took 89.3399 seconds.
+  - conditional took 0.0764 seconds.
 - JSONStream:
-  - shallow took 13.06 seconds.
-  - deep took 13.5694 seconds.
+  - shallow took 13.2306 seconds.
+  - deep took 13.5396 seconds.
 - oboe:
-  - shallow took 16.0373 seconds.
-  - deep took 17.4425 seconds.
+  - shallow took 16.4231 seconds.
+  - deep took 17.4351 seconds.
+- json-power-query:
+  - shallow took 0.0677 seconds.
+  - deep took 0.0541 seconds.
+  - conditional took 0.0538 seconds.
 - map-filter-reduce:
 
 
@@ -129,24 +129,24 @@ smallCityLots
 ┌───────────────────┬───────────────────┬───────────────────┬───────────────────┐
 │      (index)      │      shallow      │       deep        │    conditional    │
 ├───────────────────┼───────────────────┼───────────────────┼───────────────────┤
-│    json-query     │      0.0193       │      0.0178       │      0.0161       │
-│ json-power-query  │      0.0066       │      0.0059       │      0.0081       │
-│   jsonpath-plus   │      0.3602       │      0.3547       │      0.3123       │
-│     jsonpath      │      0.9105       │      5.5777       │      0.0223       │
-│    JSONStream     │      2.1767       │      2.2236       │  'not possible'   │
-│       oboe        │      2.6634       │      2.8611       │  'not possible'   │
+│    json-query     │      0.0131       │      0.0257       │      0.0278       │
+│   jsonpath-plus   │      0.3732       │      0.3694       │      0.3274       │
+│     jsonpath      │      0.9304       │      5.4267       │      0.0221       │
+│    JSONStream     │      2.1897       │      2.2671       │  'not possible'   │
+│       oboe        │      2.7426       │      2.8148       │  'not possible'   │
+│ json-power-query  │      0.0059       │      0.0053       │      0.0077       │
 │ map-filter-reduce │ 'not implemented' │ 'not implemented' │ 'not implemented' │
 └───────────────────┴───────────────────┴───────────────────┴───────────────────┘
 mediumCityLots
 ┌───────────────────┬───────────────────┬───────────────────┬───────────────────┐
 │      (index)      │      shallow      │       deep        │    conditional    │
 ├───────────────────┼───────────────────┼───────────────────┼───────────────────┤
-│    json-query     │      0.0145       │      0.0201       │       0.017       │
-│ json-power-query  │      0.0061       │      0.0071       │      0.0091       │
-│   jsonpath-plus   │       0.732       │      0.7544       │      0.7108       │
-│     jsonpath      │      1.9381       │      21.0531      │      0.0373       │
-│    JSONStream     │      4.4559       │       4.734       │  'not possible'   │
-│       oboe        │      6.2294       │      5.6633       │  'not possible'   │
+│    json-query     │      0.0162       │      0.0236       │      0.0176       │
+│   jsonpath-plus   │      0.7508       │      0.7786       │      0.9143       │
+│     jsonpath      │      1.9927       │      21.0271      │      0.0369       │
+│    JSONStream     │      4.5762       │      4.9277       │  'not possible'   │
+│       oboe        │      5.8425       │      5.8037       │  'not possible'   │
+│ json-power-query  │      0.0363       │      0.0192       │       0.025       │
 │ map-filter-reduce │ 'not implemented' │ 'not implemented' │ 'not implemented' │
 └───────────────────┴───────────────────┴───────────────────┴───────────────────┘
 largeCityLots
@@ -154,11 +154,11 @@ largeCityLots
 │      (index)      │      shallow      │       deep        │    conditional    │
 ├───────────────────┼───────────────────┼───────────────────┼───────────────────┤
 │    json-query     │     'failed'      │     'failed'      │     'failed'      │
-│ json-power-query  │      0.0281       │      0.0335       │      0.2713       │
-│   jsonpath-plus   │      2.0309       │      2.0961       │      1.3241       │
-│     jsonpath      │      5.5157       │      90.6215      │       0.075       │
-│    JSONStream     │       13.06       │      13.5694      │  'not possible'   │
-│       oboe        │      16.0373      │      17.4425      │  'not possible'   │
+│   jsonpath-plus   │      2.4115       │      2.1583       │      1.3796       │
+│     jsonpath      │      5.6833       │      89.3399      │      0.0764       │
+│    JSONStream     │      13.2306      │      13.5396      │  'not possible'   │
+│       oboe        │      16.4231      │      17.4351      │  'not possible'   │
+│ json-power-query  │      0.0677       │      0.0541       │      0.0538       │
 │ map-filter-reduce │ 'not implemented' │ 'not implemented' │ 'not implemented' │
 └───────────────────┴───────────────────┴───────────────────┴───────────────────┘
 ```
