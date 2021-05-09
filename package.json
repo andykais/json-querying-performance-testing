@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "JSONStream": "^1.3.5",
-    "json-power-query": "^1.0.2",
+    "json-power-query": "^1.1.0",
     "json-query": "^2.2.2",
     "jsonpath": "^1.1.1",
     "jsonpath-plus": "^5.0.7",
