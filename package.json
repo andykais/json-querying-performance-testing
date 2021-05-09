@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "perf": "node --max-old-space-size=4096 src"
+    "perf": "node --max-old-space-size=4096 --expose-gc src"
   },
   "keywords": [],
   "author": "Andrew Kaiser",

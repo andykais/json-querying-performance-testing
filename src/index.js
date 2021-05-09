@@ -55,6 +55,7 @@ const perf = (perfClasses, datasets) => async (
       for (const method of testMethods) {
         try {
           await accessClass.setup()
+          global.gc()
           const start = performance.now()
           const result = await accessClass[method]()
           const stop = performance.now()
@@ -115,9 +116,9 @@ const testLibraries = [
   'json-query',
   'jsonpath-plus',
   'jsonpath',
+  'json-power-query',
   'JSONStream',
   'oboe',
-  'json-power-query',
   'map-filter-reduce'
 ]
 const testDatasets = [
