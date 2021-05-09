@@ -6,7 +6,8 @@ const performanceClasses = {
   jsonpath: require('./queriers/jsonpath'),
   JSONStream: require('./queriers/JSONStream'),
   oboe: require('./queriers/oboe'),
-  'map-filter-reduce': require('./queriers/map-filter-reduce')
+  'map-filter-reduce': require('./queriers/map-filter-reduce'),
+  'json-power-query': require('./queriers/json-power-query')
 }
 const datasets = {
   smallCityLots: {
@@ -112,6 +113,7 @@ console.log()
 
 const testLibraries = [
   'json-query',
+  'json-power-query',
   'jsonpath-plus',
   'jsonpath',
   'JSONStream',
