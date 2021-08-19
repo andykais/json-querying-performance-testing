@@ -15,7 +15,7 @@ class JsonPowerQueryCity extends CityLotsORM {
     return this.execute('$.features.*.properties.BLOCK_NUM')
   }
   conditional() {
-    return this.execute(`$.features.*{ "===": [{ "var": "properties.STREET" }, "UNKNOWN"] }.properties.BLOCK_NUM`)
+    return this.execute(`$.features.[?(@.properties.STREET === 'UNKNOWN')].properties.BLOCK_NUM`)
   }
 }
 
