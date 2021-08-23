@@ -6,7 +6,8 @@ const performanceClasses = {
   jsonpath: require('./queriers/jsonpath'),
   JSONStream: require('./queriers/JSONStream'),
   oboe: require('./queriers/oboe'),
-  'map-filter-reduce': require('./queriers/map-filter-reduce')
+  'map-filter-reduce': require('./queriers/map-filter-reduce'),
+  'json-power-query': require('./queriers/json-power-query')
 }
 const datasets = {
   smallCityLots: {
@@ -54,6 +55,7 @@ const perf = (perfClasses, datasets) => async (
       for (const method of testMethods) {
         try {
           await accessClass.setup()
+          global.gc()
           const start = performance.now()
           const result = await accessClass[method]()
           const stop = performance.now()
@@ -114,6 +116,7 @@ const testLibraries = [
   'json-query',
   'jsonpath-plus',
   'jsonpath',
+  'json-power-query',
   'JSONStream',
   'oboe',
   'map-filter-reduce'
