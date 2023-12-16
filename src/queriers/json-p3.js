@@ -1,9 +1,9 @@
-const jp = require('jsonpath');
+const jsonpath = require('json-p3');
 const CityLotsORM = require('./base-class');
 
-class JsonPathCity extends CityLotsORM {
+class JsonP3City extends CityLotsORM {
   execute(query) {
-    return jp.query(this.data, query);
+    return jsonpath.query(query, this.data);
   }
   shallow() {
     return this.execute('$.features..properties');
@@ -16,4 +16,4 @@ class JsonPathCity extends CityLotsORM {
   }
 }
 
-module.exports = JsonPathCity;
+module.exports = JsonP3City;
