@@ -1,36 +1,36 @@
-const JSONStream = require('JSONStream')
-const CityLotsORM = require('./base-class')
-const objectToStream = require('../object-to-stream')
-const { NotPossibleError } = require('../errors')
+const JSONStream = require('JSONStream');
+const CityLotsORM = require('./base-class');
+const objectToStream = require('../object-to-stream');
+const { NotPossibleError } = require('../errors');
 
 class JSONStreamCity extends CityLotsORM {
   setup() {
-    this.jsonStream = objectToStream(this.data)
+    this.jsonStream = objectToStream(this.data);
   }
   cleanup() {
-    this.jsonStream = null
+    this.jsonStream = null;
   }
   execute(query) {
     return new Promise((resolve, reject) => {
-      const result = []
+      const result = [];
       this.jsonStream
         .pipe(JSONStream.parse(query))
         .on('data', data => {
-          result.push(data)
+          result.push(data);
         })
         .on('close', () => resolve(result))
-        .on('error', reject)
-    })
+        .on('error', reject);
+    });
   }
   shallow() {
-    return this.execute('features..properties')
+    return this.execute('features..properties');
   }
   deep() {
-    return this.execute('features..properties.BLOCK_NUM')
+    return this.execute('features..properties.BLOCK_NUM');
   }
   conditional() {
-    throw new NotPossibleError()
+    throw new NotPossibleError();
   }
 }
 
-module.exports = JSONStreamCity
+module.exports = JSONStreamCity;
