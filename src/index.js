@@ -1,11 +1,12 @@
 const { performance } = require('perf_hooks')
 const { NotPossibleError, UnImplementedError } = require('./errors')
 const performanceClasses = {
+  'jmespath': require('./queriers/jmespath'),
   'json-query': require('./queriers/json-query'),
   'jsonpath-plus': require('./queriers/jsonpath-plus'),
-  jsonpath: require('./queriers/jsonpath'),
-  JSONStream: require('./queriers/JSONStream'),
-  oboe: require('./queriers/oboe'),
+  'jsonpath': require('./queriers/jsonpath'),
+  'JSONStream': require('./queriers/JSONStream'),
+  'oboe': require('./queriers/oboe'),
   'map-filter-reduce': require('./queriers/map-filter-reduce')
 }
 const datasets = {
@@ -111,6 +112,7 @@ Object.entries(datasets).forEach(([name, { dataset }]) => {
 console.log()
 
 const testLibraries = [
+  'jmespath',
   'json-query',
   'jsonpath-plus',
   'jsonpath',
